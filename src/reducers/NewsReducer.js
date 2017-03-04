@@ -1,12 +1,12 @@
-import {FETCH_LIST} from '../actions/types';
+import {LOAD_LIST} from '../actions/types';
 
-const initialState = [];
+const INITIAL = [];
 
-export const newsReducer = (state = initialState, action){
-	switch(action.type){
-		case FETCH_LIST:
-			return action.payload;
-		default:
-			return state;
-	}
+export default newsReducer = (state = INITIAL, action)=>{
+  switch (action.type) {
+  	case LOAD_LIST:
+  		return action.payload;
+    default:
+      return state;
+  }
 }
