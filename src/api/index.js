@@ -6,8 +6,8 @@ export default class API {
   }
 
   getPost(endpoint) {
-    // const url = this.baseUrlItems + endpoint + '.json'
-    const url = 'https://hacker-news.firebaseio.com/v0/topstories.json';
+    const url = this.baseUrlItems + endpoint + '.json'
+    // const url = 'https://hacker-news.firebaseio.com/v0/topstories.json';
     return fetch(url).then((response) => response.json());
 
 

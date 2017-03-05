@@ -18,6 +18,8 @@ export const loadNews = (id) =>{
   return dispatch =>{
     new API().getPost(id)
       .then((response) => {
+        // console.log('loadNews', id);
+        // console.log('loadNews', response);
         dispatch({
           type: LOAD_NEWS,
           payload: response

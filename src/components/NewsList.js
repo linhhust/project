@@ -3,8 +3,8 @@ import {View, Text, ListView, Platform, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux'
 import {Actions} from 'react-native-router-flux'
 
-import {loadData} from '../actions';
-
+import {loadData} from '../actions'
+import ListItem from './common/ListItem'
 
 class NewsList extends Component{
 
@@ -34,10 +34,7 @@ class NewsList extends Component{
           style ={{backgroundColor:'yellow', flex:1, paddingTop:Platform.OS === 'ios' || Platform.Version > 19 ? 64 : 54}}
           enableEmptySections
           dataSource = {this.dataSource}
-          renderRow = {(item) => <TouchableOpacity onPress={() => console.log('press item')}>
-                                    <Text> {item} </Text>
-                                  </TouchableOpacity>
-                                  }
+          renderRow = {(item) => <ListItem item={item} />}
           />
       </View>
 
