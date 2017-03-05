@@ -1,16 +1,27 @@
-import {LOAD_LIST} from './types';
-
+import {LOAD_LIST, LOAD_NEWS } from './types';
+import API from '../api';
 export const loadData = () => {
     return (dispatch) => {
-        fetch('http://45.117.160.28:3330/tasks')
-        .then((response) => response.json())
+        new API().getList('beststories')
         .then((response) => {
-            console.log('loadData', response.data);
+            console.log('loadData', response);
             dispatch({
                 type: LOAD_LIST,
-                payload: response.data
+                payload: response
             });
         })
         .catch();
     };
 };
+
+export const loadNews = (id) =>{
+  return dispatch =>{
+    new API().getPost(id)
+      .then((response) => {
+        dispatch({
+          type: LOAD_NEWS,
+          payload: response
+        });
+      })
+    };
+  };

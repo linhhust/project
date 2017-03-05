@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {View, Text, ListView, Platform} from 'react-native';
+import {View, Text, ListView, Platform, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux'
 import {Actions} from 'react-native-router-flux'
 
 import {loadData} from '../actions';
-import {Button} from './common';
-import {ListItem} from './common';
-class TodoList extends Component{
+
+
+class NewsList extends Component{
 
   componentWillMount(){
 
@@ -26,7 +26,7 @@ class TodoList extends Component{
   }
 
   render(){
-    // console.log('render', this.dataSource);
+    // console.log('render list', this.props);
     return (
       <View style={{flex:1}} >
 
@@ -34,7 +34,10 @@ class TodoList extends Component{
           style ={{backgroundColor:'yellow', flex:1, paddingTop:Platform.OS === 'ios' || Platform.Version > 19 ? 64 : 54}}
           enableEmptySections
           dataSource = {this.dataSource}
-          renderRow = {(item) => <ListItem item = {item} />}
+          renderRow = {(item) => <TouchableOpacity onPress={() => console.log('press item')}>
+                                    <Text> {item} </Text>
+                                  </TouchableOpacity>
+                                  }
           />
       </View>
 
@@ -44,7 +47,7 @@ class TodoList extends Component{
 }
 
 const mapStateToProps = (state) =>{
-  console.log('map', state)
+  // console.log('map', state)
   return {data:state.newsReducer};
 }
-export default connect(mapStateToProps, {loadData}) (TodoList);
+export default connect(mapStateToProps, {loadData}) (NewsList);
