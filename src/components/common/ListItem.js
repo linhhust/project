@@ -10,14 +10,14 @@ import {loadNews} from '../../actions';
 
 class ListItem extends React.Component{
   componentWillMount(){
-    console.log('will ListItem', this.props)
+
     this.props.loadNews(this.props.item);
   }
 
   render(){
     return (
       <TouchableOpacity onPress = {() =>console.log('press Item')}>
-          <Text> item.id</Text>
+          <Text> item.iddadsf</Text>
       </TouchableOpacity>
     );
   }
@@ -27,7 +27,6 @@ ListItem.propTypes ={
   item: React.PropTypes.number.isRequired
 }
 const mapStateToProps = (state) =>{
-  console.log('ListItem map', state);
   return {data:state.newsReducer}
 }
 export default connect(mapStateToProps, {loadNews})(ListItem);

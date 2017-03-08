@@ -5,7 +5,8 @@ import {Text } from 'react-native'
 
 
 import NewsList from './components/NewsList'
-import AddTask from './components/AddTask'
+import News from './components/News'
+import  Comments from './components/Comments'
 
 const RouterWithRedux = connect()(Router);
 class RouterComponent extends Component{
@@ -13,19 +14,25 @@ class RouterComponent extends Component{
       return (
         <RouterWithRedux>
               <Scene
-                key="todo"
+                key="list"
                 component={NewsList}
                 title='component'
                 navigationBarStyle={style.navigationBarStyle}
               />
 
-              <Scene
-                key="add"
-                component={AddTask}
-                title='component'
-                navigationBarStyle={style.navigationBarStyle}
-              />
+                <Scene
+                  key="news"
+                  component={News}
+                  title='component'
+                  navigationBarStyle={style.navigationBarStyle}
+                />
 
+                <Scene
+                  key="comment"
+                  component={Comments}
+                  title='component'
+                  navigationBarStyle={style.navigationBarStyle}
+                />
         </RouterWithRedux>
       );
   }
