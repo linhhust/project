@@ -7,12 +7,13 @@ export const loadData = (category) => {
         api.getList(category)
         .then((response) => {
                               if (response.error){
-                                console.log('error', response.error);
+                                // console.log('error', response.error);
                                 dispatch(fetchFailure(response.error))
                               }else{
                                 // console.log('success');
                                 const listNews =
                                         response.map(item=> {
+                                                              dispatch({type: FETCH_PENDING});
                                                               let b = api.getNews(item);
                                                                b.then((data) => {
                                                                   //data = response.json();
@@ -25,7 +26,7 @@ export const loadData = (category) => {
                               }
         })
         .catch(error =>{
-          console.log('error', error);
+          // console.log('error', error);
           dispatch(fetchFailure(error));
         });
     }

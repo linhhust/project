@@ -7,12 +7,14 @@ import {AppRegistry, Text} from 'react-native';
 import App from './src/App'
 
 import React from 'react'
+import {
+  ActivityIndicator
+}from 'react-native'
 
-import API from './src/api'
-import {Item} from './src/components/common/Item'
-class A extends React.Component{
+
+class A extends React.Component{c
   render (){
-    return <Item/>
+    return <ActivityIndicator color ='blue' size = 'large' style ={{justifyContent: 'center', alignItems: 'center', backgroundColor: 'yellow', flex: 1}}/>
   }
 }
 AppRegistry.registerComponent('project', () => App);
